@@ -43,7 +43,7 @@ export function registerFunctions(): void {
     // no-inline
     Functions: Service
   };
-  
+
   _registerComponent(
     new Component(FUNCTIONS_TYPE, factory, ComponentType.PUBLIC)
       .setServiceProps(namespaceExports)
