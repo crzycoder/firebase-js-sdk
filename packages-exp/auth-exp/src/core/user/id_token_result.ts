@@ -23,7 +23,10 @@ import { ProviderId } from '../providers';
 import { assert } from '../util/assert';
 import { _logError } from '../util/log';
 
-export function getIdToken(user: externs.User, forceRefresh = false): Promise<string> {
+export function getIdToken(
+  user: externs.User,
+  forceRefresh = false
+): Promise<string> {
   return user.getIdToken(forceRefresh);
 }
 

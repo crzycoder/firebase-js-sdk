@@ -30,7 +30,6 @@ export interface Config {
   authDomain?: string;
 }
 
-
 export interface Persistence {
   readonly type: 'SESSION' | 'LOCAL' | 'NONE';
 }
@@ -148,9 +147,9 @@ export interface ActionCodeURL {
 }
 
 type ActionCodeOperationType =
- 'PASSWORD_RESET'
- | 'RECOVER_EMAIL'
- | 'EMAIL_SIGNIN'
- | 'VERIFY_EMAIL'
- | 'VERIFY_AND_CHANGE_EMAIL'
- | 'REVERT_SECOND_FACTOR_ADDITION'
+  | 'PASSWORD_RESET'
+  | 'RECOVER_EMAIL'
+  | 'EMAIL_SIGNIN'
+  | 'VERIFY_EMAIL'
+  | 'VERIFY_AND_CHANGE_EMAIL'
+  | 'REVERT_SECOND_FACTOR_ADDITION';
