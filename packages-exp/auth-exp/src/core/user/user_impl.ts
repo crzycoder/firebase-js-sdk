@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 
+import { deleteAccount } from '../../api/account_management/account';
 import { Auth } from '../../model/auth';
 import { IdTokenResult } from '../../model/id_token';
 import { User } from '../../model/user';
@@ -97,8 +98,15 @@ export class UserImpl implements User {
     return reload(this);
   }
 
-  delete(): Promise<void> {
-    throw new Error('Method not implemented.');
+  async delete(): Promise<void> {
+    const idToken = await this.getIdToken();
+    await deleteAccount(this.auth, {idToken});
+    this.stsTokenManager.refreshToken = null;
+
+    // TODO: Determine if cancellable-promises are necessary to use in this class so that delete()
+    //       cancels pending actions...
+    
+    return this.auth.signOut();
   }
 
   toPlainObject(): PersistedBlob {
